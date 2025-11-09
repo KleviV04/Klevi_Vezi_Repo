@@ -22,9 +22,8 @@ import time
 import itertools
 import random
 
-# --------------------------
-# Domain Model
-# --------------------------
+
+# →Domain Model
 
 # A coordinate (x, y) on the grid
 Coord = Tuple[int, int]
@@ -89,9 +88,7 @@ class SearchStats:
     max_frontier: int = 0
     runtime_sec: float = 0.0
 
-# --------------------------
 # Cost and Successor functions
-# --------------------------
 
 BASE_MOVE_COST = 1.0     # basic energy for one move
 DELIVER_COST = 0.0       # delivering a package is free here
@@ -145,9 +142,7 @@ def successors(cfg: ProblemConfig, s: State) -> Iterable[Tuple[str, State, float
         recharge_time = cfg.recharge_stations[s.pos]
         yield ("RECHARGE", State(s.pos, cfg.battery_capacity, s.delivered_mask), float(recharge_time))
 
-# --------------------------
 # Heuristic for A* Search
-# --------------------------
 
 def manhattan(a: Coord, b: Coord) -> int:
     """Simple Manhattan distance between two cells."""
@@ -189,9 +184,7 @@ def heuristic(cfg: ProblemConfig, s: State) -> float:
     mst = mst_length(remaining)
     return float(d0 + mst)
 
-# --------------------------
 # Generic Best-First Search (works for UCS or A*)
-# --------------------------
 
 class PQItem:
     """Item stored in priority queue (frontier)."""
@@ -261,9 +254,9 @@ def reconstruct_path(parent: Dict[State, Tuple[Optional[State], str, float]], go
     out.reverse()
     return out
 
-# --------------------------
-# Demo / Experiments
-# --------------------------
+
+# Experiments
+
 
 def make_demo_config(seed: int = 0) -> ProblemConfig:
     """Creates a demo environment for testing."""
@@ -315,6 +308,6 @@ def run_once(astar_mode: bool) -> None:
     print_plan(cfg, plan, total)
 
 if __name__ == "__main__":
-    # Run both algorithms for comparison
+    # Algorithms comparison
     run_once(astar_mode=False)  # UCS
     run_once(astar_mode=True)   # A*
