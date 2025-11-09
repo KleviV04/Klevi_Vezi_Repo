@@ -15,6 +15,6 @@ The project includes:
 - `report_drone_delivery.md` → markdown version of the report  
 - `Report_assignment.pdf` → final report (PDF)
 
-**Author:** Klevi Vezi  
+**Done by:** Klevi Vezi  
 **GitHub Repo:** [https://github.com/KleviV04/AI_assignment_Klevi_Vezi](https://github.com/KleviV04/AI_assignment_Klevi_Vezi)
 
