@@ -11,7 +11,7 @@ Two search algorithms were implemented and compared:
 - **A\*** – informed search with an admissible heuristic for faster results
 
 The project includes:
-- `drone_delivery_search.py` → main code with UCS and A\* implementations  
+- `drone_solver.py` → main code with UCS and A\* implementations  
 - `report_drone_delivery.md` → markdown version of the report  
 - `Report_assignment.pdf` → final report (PDF)
 
