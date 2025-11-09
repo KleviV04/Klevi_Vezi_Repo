@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Drone Delivery with Battery Limits
-Author: Klevi Vezi
+Done by: Klevi Vezi
 
 This program simulates a delivery drone that has limited battery capacity.
 The drone moves on a grid world, facing wind resistance and needing to recharge.
