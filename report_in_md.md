@@ -19,11 +19,11 @@ The drone can stop at recharge stations, but each one takes a different amount o
 The goal is to deliver all packages using as little total cost as possible.
 
 ### State Representation
-`(x, y, battery, delivered_mask)`
+(x, y, battery, delivered_mask)
 
-- `x, y` → drone position  
-- `battery` → remaining charge  
-- `delivered_mask` → tracks which packages are already delivered  
+- x, y → drone position  
+- battery → remaining charge  
+- delivered_mask → tracks which packages are already delivered  
 
 ### Actions
 - MOVE → move in 4 directions (if enough battery)  
@@ -32,7 +32,7 @@ The goal is to deliver all packages using as little total cost as possible.
 
 ### Transition and Cost
 - Dynamic energy per move:  
-  `energy = 1 + wind[x,y] + 0.05 * remaining_payload_weight`  
+  energy = 1 + wind[x,y] + 0.05 * remaining_payload_weight  
   This makes the world more realistic — wind makes flying harder, and carrying more packages drains energy faster.
 - Delivering has no cost.  
 - Recharging fills the battery and adds time based on the station speed.
@@ -50,8 +50,8 @@ An uninformed search that expands by total path cost `g`.
 It’s always optimal but explores more states because it doesn’t use any heuristic.
 
 ### A\* Search
-An informed version that expands by `f = g + h`, using this heuristic:  
-`h = nearest(current → remaining) + MST(remaining)`  
+An informed version that expands by f = g + h, using this heuristic:  
+h = nearest(current → remaining) + MST(remaining)  
 where MST is the minimum spanning tree of remaining delivery points (using Manhattan distance).
 
 The heuristic ignores wind and recharge times, so it never overestimates cost — this makes it admissible and safe to use.  
@@ -110,7 +110,7 @@ These elements make the domain original and practical — similar to how real de
 
 ## 6. Reproducibility
 
-- Single-file Python implementation (`drone_solver.py`)  
+- Single-file Python implementation (drone_solver.py)  
 - Deterministic random seed for fair comparisons  
 - No extra libraries required  
 - Runs in under 1 second  
